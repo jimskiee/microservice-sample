@@ -9,6 +9,10 @@ COPY package*.json ./
 RUN npm install
 # RUN npm install react-scripts -g
 
+RUN chown -R node /app/node_modules
+RUN chmod -R g+rwX,o+rwX /app
+USER node
+
 # copy app files
 COPY . .
 
